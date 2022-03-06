@@ -16,11 +16,7 @@ namespace MailSystemTest
         {
             InitializeComponent();
         }
-
-        int y = 50;
-        int ilosc = 0;
         List<Panel> panels = new List<Panel>();
-        List<Label> teksty = new List<Label>();
         private void button1_Click(object sender, EventArgs e)
         {
             NewPanelCreator();
@@ -44,36 +40,34 @@ namespace MailSystemTest
 
         private void NewPanelCreator()
         {
+
+            int index = 0;
+            foreach (var test in panels)
+            {
+                panels[index].Location = new Point(353, panels[index].Location.Y + 50);
+                index++;
+            }
             var newPanel = new Panel();
-            newPanel.BackColor = Color.Gray;
-            newPanel.Location = new Point(400, y);
-            newPanel.Size = new Size(400, 40);
-            newPanel.Name = "panelX" + ilosc.ToString();
+            newPanel.BackColor = Color.Silver;
+            newPanel.Location = new Point(353, 12);
+            newPanel.Size = new Size(907, 34);
             Controls.Add(newPanel);
 
             panels.Add(newPanel);
-            y += 50;
-            ilosc++;
 
             var labelNew = new Label();
-            labelNew.Location = new Point(0, 0);
-            labelNew.Size = new Size(667, 15);
+            labelNew.Location = new Point(0, 8);
+            labelNew.Size = new Size(240, 16);
+            labelNew.Font = new Font("Arial", 9, FontStyle.Bold);
             labelNew.Text = textBox1.Text;
             newPanel.Controls.Add(labelNew);
-            teksty.Add(labelNew);
 
-            label1.Text = "";
-            int index = 0;
-            foreach (var test in teksty)
-            {
-                if (teksty.Count == index + 1)
-                {
-                    return;
-                }
-                label1.Text += "\n(" + teksty.Count + " | " + index + ") " + test.Text;
-                teksty[index].Text = teksty[index + 1].Text;
-                index++;
-            }
+            var labelNew2 = new Label();
+            labelNew2.Location = new Point(238, 9);
+            labelNew2.Size = new Size(115, 15);
+            labelNew2.Font = new Font("Arial", 9);
+            labelNew2.Text = textBox2.Text + " | " + textBox3.Text;
+            newPanel.Controls.Add(labelNew2);
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -83,18 +77,7 @@ namespace MailSystemTest
 
         private void button2_Click(object sender, EventArgs e)
         {
-            label1.Text = "";
-            int index = 0;
-            foreach (var test in teksty)
-            {
-                if (teksty.Count == index + 1)
-                {
-                    return;
-                }
-                label1.Text += "\n(" + teksty.Count + " | " + index + ") " + test.Text;
-                teksty[index].Text = teksty[index+1].Text;
-                index++;
-            }
+
         }
     }
 }

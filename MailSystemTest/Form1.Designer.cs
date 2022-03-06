@@ -71,9 +71,9 @@ namespace MailSystemTest
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(76, 210);
+            this.button3.Location = new System.Drawing.Point(76, 240);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(189, 55);
+            this.button3.Size = new System.Drawing.Size(189, 25);
             this.button3.TabIndex = 4;
             this.button3.Text = "button2";
             this.button3.UseVisualStyleBackColor = true;
